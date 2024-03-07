@@ -4,7 +4,7 @@ export default class ReviewsController { // a class is used to create multiple f
     //the first function,static->you can  call directly from the reviewsContoller, if it was not static, you could create an instance
   static async apiPostReview(req, res, next) {// this route is in the reviews.route.js file
     try {
-      const movieId = req.body.movieId;
+      const movieId = parseInt(req.body.movieId);
       const review = req.body.review;
       const user = req.body.user;
 

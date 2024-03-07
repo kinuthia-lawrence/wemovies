@@ -26,6 +26,7 @@ MongoClient.connect(
         process.exit(1); //end the program
     })
     .then(async client => { //async can run asynchronously, get the client from conn to database
+        await ReviewsDAO.injectDB(client) //inject the database into the ReviewsDAO
         app.listen(port, () =>{ //start the web server
             console.log("listening on port " + port); //listen to port number port
         })
