@@ -21,12 +21,12 @@ MongoClient.connect(
         wtimeoutMS: 2500, ////2500ms timeout for write operations, 
         useNewUrlParser: true  //use new url parser to connect to the database
     })
-    .catch(err =>{
-        console.error(err.stack);
-        process.exit(1);
+    .catch(err =>{ //catch any error which happen during connection
+        console.error(err.stack); //communicates it an error
+        process.exit(1); //end the program
     })
-    .then(async client => {
-        app.listen(port, () =>{
-            console.log("listening on port " + port);
+    .then(async client => { //async can run asynchronously, get the client from conn to database
+        app.listen(port, () =>{ //start the web server
+            console.log("listening on port " + port); //listen to port number port
         })
     })
